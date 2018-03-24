@@ -370,37 +370,3 @@ for data in rand_loader:
     print("outside : input size",input_var.size(),'output_size',output.size())
 
 # Results
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
