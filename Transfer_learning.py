@@ -85,7 +85,7 @@ def train_model(model,criterion,optimizer,scheduler,num_epochs=25):
                 else:
                     inputs,labels=Variable(inputs),Variable(labels)
                 optimizer.zero_grad()
-                outputs=train_model(inputs)
+                outputs=model(inputs)
                 _,preds=torch.max(outputs.data,1)
                 loss=criterion(outputs,labels)
                 if phase=='train':
