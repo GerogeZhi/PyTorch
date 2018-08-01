@@ -20,7 +20,7 @@ for t in range(500):
     print(t,loss)
     
     grad_y_pred=2.0 * (y_pred-y)
-    gradw2=h_relu.T.dot(grad_y_pred)
+    grad_w2=h_relu.T.dot(grad_y_pred)
     
     grad_h_relu=grad_y_pred.dot(w2.T)
     grad_h=grad_h_relu.copy()
