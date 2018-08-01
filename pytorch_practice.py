@@ -285,7 +285,7 @@ for data in testloader:
     outputs=net(Variable(images))
     _,predicted=torch.max(outputs.data,1)
     total+=labels.size(0)
-    correct+=(predicted==labels).sum
+    correct+=(predicted==labels).sum().item()
 print('accuracy of the network on the 10000 test images:%d %%' % (100*correct/total))
 
 class_correct = list(0. for i in range(10))
