@@ -185,7 +185,7 @@ optimizer.step()
 
 import torch
 import torchvision
-import torchvision.transform as transforms
+import torchvision.transforms as transforms
 
 transform=transforms.Compose(
         [transforms.ToTensor(),
