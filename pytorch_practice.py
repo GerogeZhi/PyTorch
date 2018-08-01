@@ -290,15 +290,17 @@ print('accuracy of the network on the 10000 test images:%d %%' % (100*correct/to
 
 class_correct = list(0. for i in range(10))
 class_total = list(0. for i in range(10))
-for data in dataloader:
-    images,labels=data
-    outputs = net(Variables(images))
-    _,predicted=troch.max(outputs.data,1)
-    c=(predicted == labels).squeeze()
-    for i in range(4):
-        label=labels[i]
-        class_correct[label]+=c[i]
-        class_total[label]+=1
+with torch.no_grad():
+    for data in testloader:
+        images, labels = data
+        outputs = net(images)
+        _, predicted = torch.max(outputs, 1)
+        c = (predicted == labels).squeeze()
+        for i in range(4):
+            label = labels[i]
+            class_correct[label] += c[i].item()
+            class_total[label] += 1
+
 for i in range(10):
     print('accuracy of %5s : %2d %%' % (classes[i],100*class_correct[i]/class_total[i]))
 
