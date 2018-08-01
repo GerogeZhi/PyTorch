@@ -276,9 +276,8 @@ imshow(torchvision.utils.make_grid(images)) #print images
 print('GroundTruth: ',' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
 outputs = net(Variable(images))
-_,predicted = torch.max(output.data,1)
-print('predicted: ',' '.join('%5s' % classes[predicted[j]] for j in range(4)))
-
+_, predicted = torch.max(outputs, 1)
+print('Predicted: ', ' '.join('%5s' % classes[predicted[j]]for j in range(4)))
 correct=0
 total=0
 for data in testloader:
