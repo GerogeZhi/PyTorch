@@ -109,14 +109,14 @@ for t in range(500):
 
 import torch
 from torch.autograd import Variable
-class MyRelu(torch.autograd.function):
+class MyRelu(torch.autograd.Function):
     def forward(ctx,input):#ctx is a context object
         ctx.save_for_backward(input)
         return input.clamp(min=0)
     @staticmethod
     def backward(ctx,grad_output):
         input, =ctx.save_tensors
-        grad_input=grad_out.clone()
+        grad_input=grad_output.clone()
         grad_input[input<0]=0
         return grad_input
 dtype=torch.FloatTensor
