@@ -63,7 +63,7 @@ if torch.cuda.is_avaliable():
 # variable
 
 import torch
-from torch.atuograd import Variable
+from torch.autograd import Variable
 x=Variable(torch.ones(2,2),requires_grads=True)
 print(x)
 y=x+2
@@ -101,7 +101,7 @@ print(x.grad)
 # Define the network
 
 import torch 
-from torch.atuograd import Variable
+from torch.autograd import Variable
 import torch.nn as nn
 import torch.nn.functional as F
 
